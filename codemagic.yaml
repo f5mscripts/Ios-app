@@ -1,3 +1,14 @@
-git add codemagic.yaml
-git commit -m "Update Codemagic configuration"
-git push origin main
+workflows:
+  ios-build:
+    name: iOS Build
+    max_build_duration: 60
+
+    environment:
+      xcode: latest
+
+    scripts:
+      - name: Test step
+        script: echo "Build started"
+
+    artifacts:
+      - build/**/*.ipa
